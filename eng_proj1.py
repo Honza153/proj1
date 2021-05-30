@@ -64,6 +64,50 @@ print("-" * 50)
 txt_cs_in = input("Vyber si číslo textu[1-3] ")
 txt_cs = int(txt_cs_in) - 1
 print("-" * 50)
-txt_anal = TEXTS[txt_cs]
-print("Vybraný text: ",txt_anal)
+txt_anal = TEXTS[txt_cs].split()
+lst_anal = list()
+pct_prvni_velke = 0
+pct_velka = 0
+pct_mala = 0
+pct_cislice = 0
+lst_cislic = list()
+
+for wrd in txt_anal:
+    wrd_cl = wrd.strip(".")
+    lst_anal.append(wrd_cl)
+
+for i in range(0,len(lst_anal)):
+    if lst_anal[i].istitle():
+        pct_prvni_velke += 1
+    if lst_anal[i].isalpha() and lst_anal[i].isupper():
+        pct_velka += 1
+    if lst_anal[i].isalpha() and lst_anal[i].islower():
+        #print("mala: ",lst_anal[i])
+        pct_mala += 1
+    if lst_anal[i].isdigit():
+        pct_cislice += 1
+        lst_cislic.append(int(lst_anal[i]))
+
+print(f"There are {len(lst_anal)} words in the selected text")
+print(f"There are {pct_prvni_velke} titlecase words.")
+print(f"There are {pct_velka} uppercase words.")
+print(f"There are {pct_mala} uppercase words.")
+print(f"There are {pct_cislice} numeric strings.")
+print("The sum of all the numbers: ", sum(lst_cislic))
+
+vyskyt = dict()
+lst = list()
+lst_count = 0
+for wrd in lst_anal:
+    lst.append(len(wrd))
+    dict_help = {len(wrd):lst.count(len(wrd))}
+    vyskyt.update(dict_help)
+
+print("=" * 50)
+print(f"LEN| OCCURENCES | NR.")
+print("."* 40)
+for klic, hod in sorted(vyskyt.items()):
+    print(f"{klic} | {'*' * int(hod)} | {hod}")
+
+
 
