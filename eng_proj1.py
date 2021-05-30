@@ -28,7 +28,8 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as 
 other freshwater genera and herring similar to those 
 in modern oceans. Other fish such as paddlefish, 
-garpike and stingray are also present.'''
+garpike and stingray are also present.
+'''
          ]
 
 # Vyžádá si od uživatele přihlašovací jméno a heslo.
@@ -46,4 +47,23 @@ garpike and stingray are also present.'''
 """
 
 users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
-print("users(klic): ",users.keys())
+print("Vítejte v aplikaci Text analyzátor")
+user_in= input("Zadej uživatelské jméno: ")
+user = user_in.strip(" ")
+pwd_in = input("Zadej své heslo: ")
+pwd = pwd_in.strip(" ")
+if user in users.keys():
+    if True and users.get(user) == pwd:
+        print(f"Ahoj, Tvé přihlašovací údaje jsou : {user} , {pwd}")
+    else:
+        print("Vaše heslo nesouhlasí s uživatelským jménem"); exit(-1)
+else:
+    print("Uživatelské jméno je špatně"); exit(-1)
+
+print("-" * 50)
+txt_cs_in = input("Vyber si číslo textu[1-3] ")
+txt_cs = int(txt_cs_in) - 1
+print("-" * 50)
+txt_anal = TEXTS[txt_cs]
+print("Vybraný text: ",txt_anal)
+
