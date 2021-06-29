@@ -83,9 +83,10 @@ pct_mala = 0
 pct_cislice = 0
 lst_cislic = list()
 
-char = " ?.!/;:,"
+#char = " ?.!/;:,"
+chars = [';', ':', '!', "*"," ","",'?','.',' .','/',',']
 for wrd in txt_anal:
-        wrd_cl = wrd.strip(char)
+        wrd_cl = ''.join(i for i in wrd if not i in chars)
         lst_anal.append(wrd_cl)
 
 print(lst_anal)
