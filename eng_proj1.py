@@ -87,7 +87,8 @@ lst_cislic = list()
 chars = [';', ':', '!', "*"," ","",'?','.',' .','/',',']
 for wrd in txt_anal:
         wrd_cl = ''.join(i for i in wrd if not i in chars)
-        lst_anal.append(wrd_cl)
+        if not len(wrd_cl) == 0:
+            lst_anal.append(wrd_cl)
 
 print(lst_anal)
 for i in range(0,len(lst_anal)):
